@@ -1,6 +1,17 @@
 # AFL Layout Prototype
 
-# HTML and CSS
+View live layout: 
+    
+> https://scotty-wkc.github.io/afl-layout-demo/
+
+
+---
+
+
+Based on 
+https://www.afl.com.au
+
+![afl screenshot](docs/afl-screenshot.png)
 
 ## HTML - Building blocks
 
