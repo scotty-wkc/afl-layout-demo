@@ -4,13 +4,88 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style type="text/css">
-      body {
+      div {
+        border: 1px solid black;
+        padding: 10px;
       }
+
+      .team_page_links {
+        background-color: brown;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        align-content: stretch;
+        justify-content: space-between;
+      }
+
+      .nav_bar {
+        background-color: aquamarine;
+      }
+
+      .nav_bar .right_side_items {
+        background-color: rgb(186, 235, 11);
+      }
+
+      .content {
+        background-color: rgb(60, 255, 0);
+      }
+
+      .content .image_and_news_headlines {
+        background-color: darkslategrey;
+      }
+
+      .content .image_and_news_headlines .bottom_half {
+        background-color: navy;
+      }
+
+      .content .right_column_and_widget {
+        background-color: hotpink;
+      }
+
     </style>
 
-    <title>Hello World</title>
+    <title>AFL Layout</title>
   </head>
   <body>
-    Hello World
+
+    <div class="team_page_links">
+
+      <div class="telstra_ad_menu"></div>
+      <div class="womens_afl_logo"></div>
+      <div class="teams_icon"></div>
+
+    </div>
+
+
+    <div class="nav_bar">
+
+      <div class="afl_sponsor_logo"></div>
+      <div class="drop_down_menu_and_links"></div>
+      <div class="right_side_items">
+        <div class="search"></div>
+        <div class="full_disappearing_menu"></div>
+      </div>
+
+    </div>
+
+
+    <div class="content">
+
+      <div class="image_and_news_headlines">
+        <div class="most_recent_article"></div>
+        <div class="bottom_half">
+          <div class="fantasy_podcast_thumbnail"></div>
+          <div class="second_most_recent_article"></div>
+        </div>
+      </div>
+
+      <div class="right_column_and_widget">
+        <div class="branded_countdown_widget"></div>
+        <div class="news_article_list"></div>
+        <div class="easily_blocked_ad"></div>
+      </div>
+
+    </div>
+
   </body>
 </html>
