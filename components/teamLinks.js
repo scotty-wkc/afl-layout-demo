@@ -1,10 +1,12 @@
 // When something is added to the "window" object, it is available to any
 // other file.
 
-window.TeamLinksComponent = () => {
+window.TeamLinksComponent = (props) => {
+  const { teamLinksBackground = "brown" } = props;
+
   const styles = `
 .team_page_links {
-  background-color: brown;
+  background-color: ${teamLinksBackground};
   display: flex;
   flex-direction: row;
   justify-content: space-between;

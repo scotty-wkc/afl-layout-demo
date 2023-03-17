@@ -85,13 +85,27 @@
       // CSS and HTML
 
       console.log("Team Links..");
-      renderComponent(window.TeamLinksComponent());
+      renderComponent(
+        window.TeamLinksComponent({
+          teamLinksBackground: "black",
+        })
+      );
 
       console.log("NavBar..");
-      renderComponent(window.NavbarComponent());
+      renderComponent(
+        window.NavbarComponent({
+          navBarBackground: "black",
+
+          searchToolTitle: "black",
+        })
+      );
 
       console.log("Content..");
-      renderComponent(window.ContentComponent());
+      renderComponent(
+        window.ContentComponent({
+          contentBackgroundColor: "black",
+        })
+      );
 
       // Ok we have the combined CSS and HTML so lets inject them into the DOM!
       setComponentCSS(styleCode);

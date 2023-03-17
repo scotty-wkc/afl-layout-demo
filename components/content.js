@@ -1,10 +1,15 @@
 // When something is added to the "window" object, it is available to any
 // other file.
 
-window.ContentComponent = () => {
+window.ContentComponent = (props) => {
+  const { contentBackgroundColor = "rgb(60, 255, 0)" } = props;
+
+  // When you use the ` character, you can write a string that spans multiple
+  // lines. This is called a "template literal". It is a new feature of
+  // JavaScript that is very useful for writing HTML and CSS.
   const styles = `
 .content {
-  background-color: rgb(60, 255, 0);
+  background-color: ${contentBackgroundColor};
   display: flex;
   flex-direction: row;
 }
