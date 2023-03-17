@@ -5,30 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ScREACT V1.0  -->
-    <!-- Helper functions for injecting HTML and CSS into the DOM -->
-    <script lang="text/javascript">
-
-      // Some global functions that can be called from any component
-
-      window.injectCSS = function (css) {
-        var head = document.getElementsByTagName("head")[0];
-        var style = document.createElement("style");
-        style.type = "text/css";
-        style.innerHTML = css;
-        head.appendChild(style);
-      };
-
-      window.injectHTML = function (html) {
-        var body = document.getElementsByTagName("body")[0];
-        body.innerHTML= body.innerHTML + html;
-
-      };
-    </script>
-
-    <!-- Components -->
-    <script src="components/content.js" lang="text/javascript"></script>
-    <script src="components/navBar.js" lang="text/javascript"></script>
-    <script src="components/teamLinks.js" lang="text/javascript"></script>
 
     <!-- Base Styles -->
     <style type="text/css">
@@ -42,40 +18,73 @@
         flex-grow: 1;
         flex-wrap: nowrap;
       }
-
-      .nav_bar {
-        background-color: aquamarine;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .nav_bar .right_side_items {
-        background-color: rgb(186, 235, 11);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
     </style>
+
+    <style type="text/css" id="component-styles">
+      /* This is where the injected styles will go */
+    </style>
+
+    <!-- Helper functions for injecting HTML and CSS into the DOM -->
+    <script lang="text/javascript">
+
+
+      const setComponentCSS = function (css) {
+        var cssTag = document.getElementById("component-styles");
+        cssTag.innerHTML= cssTag.innerHTML + css;
+
+      };
+
+      const setComponentHTML = function (htmlCode) {
+        var body = document.getElementById("content");
+        body.innerHTML= body.innerHTML + htmlCode;
+
+      };
+    </script>
+
+    <!-- Components -->
+    <!-- We can link to other components here so they can be used elsewhere in this file -->
+    <script src="components/content.js" lang="text/javascript"></script>
+    <script src="components/navBar.js" lang="text/javascript"></script>
+    <script src="components/teamLinks.js" lang="text/javascript"></script>
 
     <title>First Page</title>
   </head>
-  <body>
-    <script>
-      // So instead of HTML we have this javascript that generates the whole site!
-
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("Rendering components..");
-
-        console.log("Team Links..");
-        window.TeamLinksComponent();
-
-        console.log("NavBar..");
-        window.NavbarComponent();
-
-        console.log("Content..");
-        window.ContentComponent();
-      });
-    </script>
+  <body id="content">
+    <!-- This is where the injected HTML will go -->
+    <!-- Don't write anything here as it will be overwritten -->
   </body>
+
+  <script>
+    // So instead of HTML we have this javascript that generates the whole site!
+
+    // This is a function that sets the combined CSS and HTML of all the components
+    const ScREACT_Renderer = () => {
+      console.log("Rendering components..");
+
+      var styleCode = ``;
+      var htmlCode = ``;
+
+      function renderComponent(component) {
+        console.log("Component", component.styles, component.html);
+        styleCode = styleCode + component.styles;
+        htmlCode = htmlCode + component.html;
+      }
+
+      console.log("Team Links..");
+      renderComponent(window.TeamLinksComponent());
+
+      console.log("NavBar..");
+      renderComponent(window.NavbarComponent());
+
+      console.log("Content..");
+      renderComponent(window.ContentComponent());
+
+      setComponentCSS(styleCode);
+      setComponentHTML(htmlCode);
+    };
+
+    // We need to wait for the DOM to load before we can generate and display
+    // the components
+    document.addEventListener("DOMContentLoaded", ScREACT_Renderer);
+  </script>
 </html>

@@ -1,3 +1,6 @@
+// When something is added to the "window" object, it is available to any
+// other file.
+
 window.ContentComponent = () => {
   const styles = `
 .content {
@@ -26,7 +29,7 @@ window.ContentComponent = () => {
 }
 `;
 
-  const content = `    
+  const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
     <div class="most_recent_article">Top News Story</div>
@@ -44,8 +47,5 @@ window.ContentComponent = () => {
 </div>
 `;
 
-  window.injectCSS(styles);
-  window.injectHTML(content);
+  return { styles, html };
 };
-
-console.log(window);

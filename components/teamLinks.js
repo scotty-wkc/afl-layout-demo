@@ -1,3 +1,6 @@
+// When something is added to the "window" object, it is available to any
+// other file.
+
 window.TeamLinksComponent = () => {
   const styles = `
 .team_page_links {
@@ -8,7 +11,7 @@ window.TeamLinksComponent = () => {
 }
 `;
 
-  const content = `    
+  const html = `    
 <div class="team_page_links">
   <div class="telstra_ad_menu">Telstra Advertisement Menu</div>
   <div class="womens_afl_logo">WAFL Logo</div>
@@ -16,8 +19,5 @@ window.TeamLinksComponent = () => {
 </div>
 `;
 
-  window.injectCSS(styles);
-  window.injectHTML(content);
+  return { styles, html };
 };
-
-console.log(window);
