@@ -59,16 +59,30 @@
 
     // This is a function that sets the combined CSS and HTML of all the components
     const ScREACT_Renderer = () => {
+      // This will write a message to your Chrome Debugger console so we can check on whats going on
       console.log("Rendering components..");
+
+      // These two variables store the CSS and HTML of all the components
+      // They are empty to start with
+      // and then each component will add its own CSS and HTML to them
 
       var styleCode = ``;
       var htmlCode = ``;
 
+      // This helper method is not called yet but will be called for each component
       function renderComponent(component) {
         console.log("Component", component.styles, component.html);
+
+        // This is where we add the CSS and HTML of each component to the
+        // combined CSS and HTML
         styleCode = styleCode + component.styles;
         htmlCode = htmlCode + component.html;
       }
+
+      // Ok lets do the rendering!
+      // We call each component which returns an object with the CSS and HTML
+      // We then call the helper method to add the CSS and HTML to the combined
+      // CSS and HTML
 
       console.log("Team Links..");
       renderComponent(window.TeamLinksComponent());
@@ -79,8 +93,10 @@
       console.log("Content..");
       renderComponent(window.ContentComponent());
 
+      // Ok we have the combined CSS and HTML so lets inject them into the DOM!
       setComponentCSS(styleCode);
       setComponentHTML(htmlCode);
+      // We are done!
     };
 
     // We need to wait for the DOM to load before we can generate and display
