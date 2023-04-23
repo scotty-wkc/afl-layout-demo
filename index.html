@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ScREACT V1.0  -->
+
+    <!-- Base Styles -->
     <style type="text/css">
-      
       body {
         margin: 0px;
       }
@@ -15,97 +18,103 @@
         flex-grow: 1;
         flex-wrap: nowrap;
       }
-
-      .team_page_links {
-        background-color: brown;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .nav_bar {
-        background-color: aquamarine;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .nav_bar .right_side_items {
-        background-color: rgb(186, 235, 11);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .content {
-        background-color: rgb(60, 255, 0);
-        display: flex;
-        flex-direction: row;
-      }
-
-      .content .image_and_news_headlines {
-        background-color: darkslategrey;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .content .image_and_news_headlines .bottom_half {
-        background-color: navy;
-        display: flex;
-        flex-direction: row;
-      }
-
-      .content .right_column_and_widget {
-        background-color: hotpink;
-        display: flex;
-        flex-direction: column;
-      }
-
     </style>
+
+    <style type="text/css" id="component-styles">
+      /* This is where the injected styles will go */
+    </style>
+
+    <!-- Helper functions for injecting HTML and CSS into the DOM -->
+    <script lang="text/javascript">
+
+
+      const setComponentCSS = function (css) {
+        var cssTag = document.getElementById("component-styles");
+        cssTag.innerHTML= cssTag.innerHTML + css;
+
+      };
+
+      const setComponentHTML = function (htmlCode) {
+        var body = document.getElementById("content");
+        body.innerHTML= body.innerHTML + htmlCode;
+
+      };
+    </script>
+
+    <!-- Components -->
+    <!-- We can link to other components here so they can be used elsewhere in this file -->
+    <script src="components/content.js" lang="text/javascript"></script>
+    <script src="components/navBar.js" lang="text/javascript"></script>
+    <script src="components/teamLinks.js" lang="text/javascript"></script>
 
     <title>First Page</title>
   </head>
-  <body>
-
-    <div class="team_page_links">
-
-      <div class="telstra_ad_menu"> Telstra Advertisement Menu </div>
-      <div class="womens_afl_logo"> WAFL Logo </div>
-      <div class="teams_icon"> Individual Team Logos </div>
-
-    </div>
-
-
-    <div class="nav_bar">
-
-      <div class="afl_sponsor_logo"> AFL & Toyota Partnership Logo </div>
-      <div class="drop_down_menu_and_links"> Nav Bar </div>
-      <div class="right_side_items">
-        <div class="search"> Search Tool </div>
-        <div class="full_disappearing_menu"> Disappearing Menu </div>
-      </div>
-
-    </div>
-
-
-    <div class="content">
-
-      <div class="image_and_news_headlines">
-        <div class="most_recent_article"> Top News Story </div>
-        <div class="bottom_half">
-          <div class="fantasy_podcast_thumbnail"> Podcast Thumbnail </div>
-          <div class="second_most_recent_article"> Previous Top News Story </div>
-        </div>
-      </div>
-
-      <div class="right_column_and_widget">
-        <div class="branded_countdown_widget"> Countdown Widget </div>
-        <div class="news_article_list"> Older News </div>
-        <div class="easily_blocked_ad"> Advertisement </div>
-      </div>
-
-    </div>
-
+  <body id="content">
+    <!-- This is where the injected HTML will go -->
+    <!-- Don't write anything here as it will be overwritten -->
   </body>
+
+  <script>
+    // So instead of HTML we have this javascript that generates the whole site!
+
+    // This is a function that sets the combined CSS and HTML of all the components
+    const ScREACT_Renderer = () => {
+      // This will write a message to your Chrome Debugger console so we can check on whats going on
+      console.log("Rendering components..");
+
+      // These two variables store the CSS and HTML of all the components
+      // They are empty to start with
+      // and then each component will add its own CSS and HTML to them
+
+      var styleCode = ``;
+      var htmlCode = ``;
+
+      // This helper method is not called yet but will be called for each component
+      function renderComponent(component) {
+        console.log("Component", component.styles, component.html);
+
+        // This is where we add the CSS and HTML of each component to the
+        // combined CSS and HTML
+        styleCode = styleCode + component.styles;
+        htmlCode = htmlCode + component.html;
+      }
+
+      // Ok lets do the rendering!
+      // We call each component which returns an object with the CSS and HTML
+      // We then call the helper method to add the CSS and HTML to the combined
+      // CSS and HTML
+
+      console.log("Team Links..");
+      renderComponent(
+        window.TeamLinksComponent({
+          teamLinksBackground: "black",
+        })
+      );
+
+      console.log("NavBar..");
+      renderComponent(
+        window.NavbarComponent({
+          navBarBackground: "black",
+
+          searchToolTitle: "black",
+        })
+      );
+
+      console.log("Content..");
+      renderComponent(
+        window.ContentComponent({
+          contentBackgroundColor: "black",
+        })
+      );
+
+      // Ok we have the combined CSS and HTML so lets inject them into the DOM!
+      setComponentCSS(styleCode);
+      setComponentHTML(htmlCode);
+      // We are done!
+    };
+
+    // We need to wait for the DOM to load before we can generate and display
+    // the components
+    document.addEventListener("DOMContentLoaded", ScREACT_Renderer);
+  </script>
 </html>
