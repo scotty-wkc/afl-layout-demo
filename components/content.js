@@ -33,11 +33,11 @@ window.ContentComponent = (props) => {
   flex-direction: column;
 }
 `;
-
+const currentDate=`April 25th`;
   const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
-    <div class="most_recent_article">Top News Story</div>
+    <div class="most_recent_article">Top News Story ${currentDate}</div>
     <div class="bottom_half">
       <div class="fantasy_podcast_thumbnail">Podcast Thumbnail</div>
       <div class="second_most_recent_article">Previous Top News Story</div>
