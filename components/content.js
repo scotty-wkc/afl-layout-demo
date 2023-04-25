@@ -39,7 +39,7 @@ window.ContentComponent = (props) => {
   flex-direction: column;
 }
 `;
-const currentDate=`April 25th`;
+const currentDate=new Date();
   const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
