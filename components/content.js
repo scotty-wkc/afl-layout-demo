@@ -2,7 +2,13 @@
 // other file.
 
 window.ContentComponent = (props) => {
-  const { contentBackgroundColor = "rgb(60, 255, 0)" } = props;
+  const {
+     contentBackgroundColor = "rgb(60, 255, 0)",
+     contentHeadlinesBackground = "darkslategrey",
+     contentHeadlinesBottomBackground = "navy",
+     contentRightBackground = "hotpink",
+
+} = props;
 
   // When you use the ` character, you can write a string that spans multiple
   // lines. This is called a "template literal". It is a new feature of
@@ -15,20 +21,20 @@ window.ContentComponent = (props) => {
 }
 
 .content .image_and_news_headlines {
-  background-color: darkslategrey;
+  background-color: ${contentHeadlinesBackground};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .content .image_and_news_headlines .bottom_half {
-  background-color: navy;
+  background-color: ${contentHeadlinesBottomBackground};
   display: flex;
   flex-direction: row;
 }
 
 .content .right_column_and_widget {
-  background-color: hotpink;
+  background-color: ${contentRightBackground};
   display: flex;
   flex-direction: column;
 }
