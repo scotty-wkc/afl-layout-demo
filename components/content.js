@@ -40,12 +40,9 @@ window.ContentComponent = (props) => {
 }
 `;
 const currentDate = new Date();
-const options = {
-  dateStyle: "short",
-  timeStyle: "short"
-};
-const formattedDateTime = currentDate.toLocaleString(undefined, options);
-console.log(formattedDateTime);
+const formattedDate = currentDate.toLocaleDateString();
+const formattedTime = currentDate.toLocaleTimeString();
+console.log(formattedDate, formattedTime);
 
   const html = `    
 <div class="content">
