@@ -39,11 +39,14 @@ window.ContentComponent = (props) => {
   flex-direction: column;
 }
 `;
-const currentDate=new Date();
+const currentDate = new Date();
 const options = {
   dateStyle: "short",
   timeStyle: "short"
 };
+const formattedDateTime = currentDate.toLocaleString(undefined, options);
+console.log(formattedDateTime);
+
   const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
