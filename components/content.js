@@ -5,7 +5,7 @@ window.ContentComponent = (props) => {
   const {
      contentBackgroundColor = "rgb(60, 255, 0)",
      contentHeadlinesBackground = "darkslategrey",
-     contentHeadlinesBottomBackground = "navy",
+     contentHeadlinesBottomBackground = "orange",
      contentRightBackground = "hotpink",
 
 } = props;
@@ -40,6 +40,10 @@ window.ContentComponent = (props) => {
 }
 `;
 const currentDate=new Date();
+const options = {
+  dateStyle: "short",
+  timeStyle: "short"
+};
   const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
