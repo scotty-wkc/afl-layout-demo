@@ -41,6 +41,9 @@ const formattedTime = currentDate.toLocaleTimeString();
   display: flex;
   flex-direction: column;
 }
+.most_recent_article {
+  color: white;
+}
 `;
 
   const html = `    
