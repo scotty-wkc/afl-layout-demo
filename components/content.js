@@ -10,6 +10,9 @@ window.ContentComponent = (props) => {
 
 } = props;
 
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString();
+const formattedTime = currentDate.toLocaleTimeString();
   // When you use the ` character, you can write a string that spans multiple
   // lines. This is called a "template literal". It is a new feature of
   // JavaScript that is very useful for writing HTML and CSS.
@@ -39,15 +42,11 @@ window.ContentComponent = (props) => {
   flex-direction: column;
 }
 `;
-const currentDate = new Date();
-const formattedDate = currentDate.toLocaleDateString();
-const formattedTime = currentDate.toLocaleTimeString();
-console.log(formattedDate, formattedTime);
 
   const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
-    <div class="most_recent_article">Top News Story ${currentDate}</div>
+    <div class="most_recent_article">Top News Story ${formattedDate} ${formattedTime}</div>
     <div class="bottom_half">
       <div class="fantasy_podcast_thumbnail">Podcast Thumbnail</div>
       <div class="second_most_recent_article">Previous Top News Story</div>
