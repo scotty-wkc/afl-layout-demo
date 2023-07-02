@@ -44,12 +44,6 @@ let ms = currentDate.getSeconds();
   color: white;
 }
 `;
-<<<<<<< HEAD
-const currentDate=new Date();
-  d.toLocaleString();
-=======
-
->>>>>>> 732de2d43f9f8b2f07eebb1adfe74ead403bd88e
   const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
