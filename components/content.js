@@ -13,10 +13,8 @@ window.ContentComponent = (props) => {
 const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString();
 const formattedTime = currentDate.toLocaleTimeString();
-let ms = currentDate.getMilliseconds();
-  // When you use the ` character, you can write a string that spans multiple
-  // lines. This is called a "template literal". It is a new feature of
-  // JavaScript that is very useful for writing HTML and CSS.
+
+
   const styles = `
 .content {
   background-color: ${contentBackgroundColor};
@@ -46,7 +44,12 @@ let ms = currentDate.getMilliseconds();
   color: white;
 }
 `;
+<<<<<<< HEAD
+const currentDate=new Date();
+  d.toLocaleString();
+=======
 
+>>>>>>> 732de2d43f9f8b2f07eebb1adfe74ead403bd88e
   const html = `    
 <div class="content">
   <div class="image_and_news_headlines">
