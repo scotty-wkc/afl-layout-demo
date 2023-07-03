@@ -10,8 +10,6 @@ window.ContentComponent = (props) => {
 
 } = props;
 
-const currentDate = new Date('${date}/${month}/{year}');
-
 
   const styles = `
 .content {
@@ -42,7 +40,7 @@ const currentDate = new Date('${date}/${month}/{year}');
   color: white;
 }
 `;
-  const html = `    
+  const html = `  
 <div class="content">
   <div class="image_and_news_headlines">
     <div class="most_recent_article">Top News Story ${formattedDate} ${formattedTime}</div>
