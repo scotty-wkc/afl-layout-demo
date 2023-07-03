@@ -10,10 +10,8 @@ window.ContentComponent = (props) => {
 
 } = props;
 
-const currentDate = new Date();
-const formattedDate = currentDate.toDateString();
-const formattedTime = currentDate.toTimeString();
-let = currentDate.getSeconds();
+const currentDate = new Date('${date}/${month}/{year}');
+
 
   const styles = `
 .content {
