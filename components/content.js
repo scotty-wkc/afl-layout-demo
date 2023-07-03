@@ -11,9 +11,9 @@ window.ContentComponent = (props) => {
 } = props;
 
 const currentDate = new Date();
-const formattedDate = currentDate.toLocaleDateString();
-const formattedTime = currentDate.toLocaleTimeString();
-let = currentDate.getSeconds(0.0);
+const formattedDate = currentDate.toDateString();
+const formattedTime = currentDate.toTimeString();
+let = currentDate.getSeconds();
 
   const styles = `
 .content {
