@@ -10,6 +10,11 @@ window.ContentComponent = (props) => {
 
 } = props;
 
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString();
+const formattedTime = currentDate.toLocaleTimeString();
+let ms = currentDate.getMilliseconds();
+
 
   const styles = `
 .content {
@@ -43,7 +48,7 @@ window.ContentComponent = (props) => {
   const html = `  
 <div class="content">
   <div class="image_and_news_headlines">
-    <div class="most_recent_article">Top News Story ${formattedDate} ${formattedTime}</div>
+    <div class="most_recent_article">Top News Story ${formattedDate} ${formattedTime} milliseconds: ${ms}</div>
     <div class="bottom_half">
       <div class="fantasy_podcast_thumbnail">Podcast Thumbnail</div>
       <div class="second_most_recent_article">Previous Top News Story</div>
