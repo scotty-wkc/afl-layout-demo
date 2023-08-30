@@ -13,7 +13,6 @@ window.ContentComponent = (props) => {
 const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString();
 const formattedTime = currentDate.toLocaleTimeString();
-let ms = currentDate.getMilliseconds();
 
 
   const styles = `
