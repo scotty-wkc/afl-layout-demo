@@ -11,6 +11,7 @@ window.ContentComponent = (props) => {
 } = props;
 
 const currentDate = new Date();
+const moment().format('MMMM Do YYYY, h:mm:ss a');
 const formattedDate = currentDate.toLocaleDateString();
 const formattedTime = currentDate.toLocaleTimeString();
 
