@@ -7,15 +7,7 @@ window.ContentComponent = (props) => {
      contentHeadlinesBackground = "darkslategrey",
      contentHeadlinesBottomBackground = "orange",
      contentRightBackground = "hotpink",
-
-} = props;
-
-const currentDate = new Date();
-const moment = currentDate.format('MMMM Do YYYY, h:mm:ss a');
-const formattedDate = currentDate.toLocaleDateString();
-const formattedTime = currentDate.toLocaleTimeString();
-
-
+  }
   const styles = `
 .content {
   background-color: ${contentBackgroundColor};
